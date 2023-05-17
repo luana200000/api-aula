@@ -1,25 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../../database');
 
-const Item = sequelize.define('Item', {
+const List = sequelize.define('List', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  item: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  listId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'Lists', // nome da tabela no banco de dados
-      key: 'id'
-    }
   }
 });
 
-
-module.exports = Item;
+module.exports = List;
