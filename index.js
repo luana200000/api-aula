@@ -3,39 +3,25 @@ const express = require('express');
 const app = express();
 
 //Import Controllers 
-const ItemController = require('./app/controllers/ItemController');
-const itemController = new ItemController();
-
-const ListController = require('./app/controllers/ListController');
-const listController = new ListController();
+const DonutController = require('./app/controllers/DonutController');
+const donutController = new DonutController();
 
 //Define json
 app.use(express.json());
 
 //Routes
 app.get('/', function(req, res) {
-  res.send('Bem-vindo!');
+  res.send('Bem-vindo ao mundo dos donuts!');
 });
 
-//lista 
-app.get('/list', (req, res) => listController.findAll(req, res));
-app.post('/list', (req, res) => listController.create(req, res));
-app.get('/list/:id', (req, res) => listController.findById(req, res));
-app.put('/list/:id', (req, res) => listController.update(req, res));
-app.delete('/list/:id', (req, res) => listController.delete(req, res));
-
-//item
-app.get('/item', (req, res) => itemController.findAll(req, res));
-app.post('/item', (req, res) => itemController.create(req, res));
-app.get('/item/:id', (req, res) => itemController.findById(req, res));
-app.put('/item/:id', (req, res) => itemController.update(req, res));
-app.delete('/item/:id', (req, res) => itemController.delete(req, res));
-
-
-
+//donut
+app.get('/donut', (req, res) => donutController.findAll(req, res));
+app.post('/donut', (req, res) => donutController.create(req, res));
+app.get('/donut/:id', (req, res) => donutController.findById(req, res));
+app.put('/donut/:id', (req, res) => donutController.update(req, res));
+app.delete('/donut/:id', (req, res) => donutController.delete(req, res));
 
 //Start server
 app.listen(3000, function() {
   console.log('Servidor rodando na porta 3000');
 });
-
